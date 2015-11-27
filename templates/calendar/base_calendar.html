@@ -31,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand" href="{%url 'calendario_app:calendar' %}">Calendario-UGEL</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -138,19 +138,19 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="{%url 'calendario_app:calendar' %}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="{%url 'calendario_app:calendar' %}"><i class="fa fa-fw fa-dashboard"></i> Mi Calendario</a>
                     </li>
                     <li>
                         <a href="{% url 'perfiles_app:usuarios' %}"><i class="fa fa-user fa-fw"></i> Usuarios</a>
                     </li>
-                   <li>
-                        <a href="{% url 'calendar_app:actividad' %}"><i class="fa fa-table fa-fw"></i>Calendario</a>
-                    </li>
                     <li>
                         <a href="{% url 'informes_app:institucion' %}"><i class="fa fa-edit fa-fw"></i> Institución</a>
                     </li>
+                   <li>
+                        <a href="{% url 'calendar_app:actividad' %}" disableb><i class="fa fa-table fa-fw"></i>Calendario</a>
+                    </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i>Registrar Usuarios</a>
+                        <a href="#" disableb><i class="fa fa-user fa-fw"></i>Registrar Usuarios</a>
                     </li>
                     <li>
                         <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
