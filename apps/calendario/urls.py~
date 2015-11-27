@@ -1,0 +1,11 @@
+from django.conf.urls import url
+from .views import CalendarJsonListView, CalendarView
+
+
+urlpatterns = [
+    url(r'^$', 'apps.calendario.views.calendar', name='panel'),
+    url(r'^json/$', CalendarJsonListView.as_view(), name='calendar_json'),
+ 	url(r'^calendario$', CalendarView.as_view(), name='calendar'),
+    url(r'^actividad$', 'apps.calendario.views.actividad', name='actividad'),
+
+]

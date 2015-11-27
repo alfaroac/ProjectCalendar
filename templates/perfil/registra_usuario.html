@@ -1,0 +1,13 @@
+{% extends "base_panel.html" %}
+
+{% block title %}
+	Registrar usuario
+{% endblock title %}
+
+{% block contenido %}
+	<form method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" class="btn btn-success" value="Registrar">
+	</form>
+{% endblock contenido %}
