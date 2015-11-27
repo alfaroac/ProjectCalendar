@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-
+__author__ = 'sandlbn and w3lly'
 
 from django.views.generic import ListView, TemplateView
-from .models import CalendarEvent
+from models import CalendarEvent
 from serializers import event_serializer
 from utils import timestamp_to_datetime
 

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" {% block angulars %}
+	
+{% endblock angulars %}>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,12 +16,20 @@
 	{% block css %}
 		
 	{% endblock css %}
+	{% block csscal %}
+		
+	{% endblock csscal %}
 </head>
 <body>
 	
 	{% block content %}
 		
 	{% endblock content %}
+
+
+	{% block angularjs %}
+		
+	{% endblock angularjs %}
 
 	{% block js %}
 		
