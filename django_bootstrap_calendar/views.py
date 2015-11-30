@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-__author__ = 'sandlbn and w3lly'
 
 from django.views.generic import ListView, TemplateView
 from models import CalendarEvent
@@ -40,3 +39,7 @@ class CalendarJsonListView(ListView):
 class CalendarView(TemplateView):
 
     template_name = 'django_bootstrap_calendar/calendar.html'
+
+
+class EventsView(TemplateView):
+    template_name='django_bootstrap_calendar/events.html'

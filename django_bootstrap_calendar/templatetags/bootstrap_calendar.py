@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-__author__ = 'sandlbn'
 
 from django import template
 from django.template.loader import render_to_string

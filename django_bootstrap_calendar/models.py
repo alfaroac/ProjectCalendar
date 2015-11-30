@@ -19,6 +19,8 @@ class CalendarEvent(models.Model):
         ('event-important', _('Important')),
     )
     title = models.CharField(max_length=255, verbose_name=_('Title'))
+    description =models.TextField(max_length=300)
+    place=models.CharField(max_length=50)
     url = models.URLField(verbose_name=_('URL'), null=True, blank=True)
     css_class = models.CharField(blank=True, max_length=20, verbose_name=_('CSS Class'),
                                  choices=CSS_CLASS_CHOICES)
