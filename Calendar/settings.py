@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'apps.perfiles',
     'django_bootstrap_calendar',
     
+    
 )
 
 MIDDLEWARE_CLASSES = (
