@@ -31,20 +31,24 @@
 			</tr>
 		</thead>
 		<tbody>
-		{% for user in listUsers %}		
+		{% for user in lista %}		
 			<tr>
 				<td>{{user.usuario}}</td>
-				<td></td>
-				<td></td>
+				<td>{{user.nombre}}</td>
+				<td>{{user.apellidos}}</td>
 				<td>{{user.dni}}</td>
 				<td>{{user.sexo}}</td>
 				<td>{{user.direccion}}</td>
 				<td>{{user.telefono}}</td>
+				<td>{{user.email}}</td>
 				<td>{{user.estado}}</td>
 				<td>{{user.imagen}}</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>{{user.role}}</td>
+				<td>
+					<a href="#" class="btn btn-success btn-xs"> <span class="glyphicon glyphicon-eye-open"></span></a>
+					<a href="#" class="btn btn-warning btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="#" class="btn btn-danger btn-xs"> <span class="glyphicon glyphicon-trash"></span></a>
+				</td>
 			</tr>	
 		{% endfor %}
 		</tbody>	

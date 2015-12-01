@@ -2,10 +2,11 @@
 
 
 from .models import CalendarEvent
+from .forms import EventForm
 from serializers import event_serializer
 from utils import timestamp_to_datetime
 
-from django.views.generic import TemplateView,ListView
+from django.views.generic import TemplateView, ListView, FormView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 import datetime
@@ -45,8 +46,13 @@ class CalendarView(TemplateView):
 
 
 
-class CrearEvento(CreateView):
-    model = CalendarEvent
+
+class CrearEvento(FormView):
     template_name = 'eventos/crear_evento.html'
+    form_class = EventForm
     success_url = reverse_lazy('calendario_app:calendar')
-    fields = ['title','url','css_class','start','end','place','description']
+
+    def form_valid(self, form):
+        event = form.save()
+        return super(CrearEvento, self).form_valid(form)
+

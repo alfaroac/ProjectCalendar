@@ -1,8 +1,13 @@
-{% extends "base_cal.html" %}
+{% extends "calendar/base_calendar.html" %}
+
+{% block title %}
+	Registrar Evento
+{% endblock title %}
+
 {% block contenido %}
-	<form method="post">
+	<form method="POST">
 		{% csrf_token %}
 		{{form.as_p}}
-		<input type="submit" value="Registrar">
+		<input type="submit" class="btn btn-success" value="Registrar">
 	</form>
 {% endblock contenido %}
