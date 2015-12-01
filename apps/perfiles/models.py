@@ -25,7 +25,8 @@ class Perfiles(models.Model):
 	estado = models.BooleanField(default=True)
 	imagen = models.ImageField(upload_to='perfiles')
 	def __unicode__(self):
-		return self.usuario.username, self.usuario.firstname
+		return self.usuario.username
+		#return ‘%s %s’ % (self.usuario.username, self.usuario.first_name)
 
 
 class Direcion(models.Model):
