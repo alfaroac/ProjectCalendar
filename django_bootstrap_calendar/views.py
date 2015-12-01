@@ -56,3 +56,6 @@ class CrearEvento(FormView):
         event = form.save()
         return super(CrearEvento, self).form_valid(form)
 
+
+            
+

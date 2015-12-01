@@ -28,7 +28,7 @@ class EventForm(forms.ModelForm):
 		widgets={
 		'title':forms.TextInput(attrs={'class':'form-control col-md-6'}),
 		'url':forms.TextInput(attrs={'class':'form-control'}),
-		'css_class':forms.TextInput(attrs={'class':'form-control'}),
+		'css_class':forms.TextInput(attrs={'class':'btn btn-primary'}),
 		#'start':forms.DateField(attrs={'class':'form-control'}),
 		#'end':forms.TextInput(attrs={'class':'form-control'}),
 		'place':forms.TextInput(attrs={'class':'form-control'}),
