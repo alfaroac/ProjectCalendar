@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from django.views.generic import ListView, TemplateView
-from models import CalendarEvent
+
+from .models import CalendarEvent
 from serializers import event_serializer
 from utils import timestamp_to_datetime
 
+from django.views.generic import TemplateView,ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 import datetime
 
 
@@ -41,5 +44,9 @@ class CalendarView(TemplateView):
     template_name = 'django_bootstrap_calendar/calendar.html'
 
 
-class EventsView(TemplateView):
-    template_name='django_bootstrap_calendar/events.html'
+
+class CrearEvento(CreateView):
+    model = CalendarEvent
+    template_name = 'eventos/crear_evento.html'
+    success_url = reverse_lazy('calendario_app:calendar')
+    fields = ['title','url','css_class','start','end','place','description']

@@ -16,8 +16,6 @@ def event_serializer(events):
             field = {
                 "id": event.pk,
                 "title": event.title,
-                "description":event.description,
-                "place":event.place,
                 "url": event.url,
                 "class": event.css_class,
                 "start": event.start_timestamp,
