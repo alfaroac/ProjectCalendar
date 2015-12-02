@@ -8,35 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-	<title>{% block title %}
-		
+   <script>
+	var d= new Date();
+	document.getElementById("demo").innerHTML=d.toDateString();
+	</script>  
+	<title>{% block title %}		
 	{% endblock title %}</title>
 
-	{% block css %}
-		
+	{% block css %}		
 	{% endblock css %}
-	{% block csscal %}
-		
+
+	{% block csscal %}		
 	{% endblock csscal %}
 </head>
 <body>
 	
-	{% block content %}
-		
+	{% block content %}		
 	{% endblock content %}
 
 
-	{% block angularjs %}
-		
+	{% block angularjs %}		
 	{% endblock angularjs %}
 
-	{% block js %}
-		
+	{% block js %}		
 	{% endblock js %}
 	
-	{% block mijs %}
-		
+	{% block mijs %}	
 	{% endblock mijs %}
 </body>
+
 </html>

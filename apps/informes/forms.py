@@ -14,4 +14,4 @@ class InstitucionForm(forms.ModelForm):
 		'longitude':forms.TextInput(attrs={'class':'form-control'}),
 		'state':forms.CheckboxInput(attrs={'class':'form-control'}),
 		}
-		
+

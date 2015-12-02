@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Ligin Sys-Ugel</title>
+        <title>Login Sys-Ugel</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -40,21 +40,10 @@
             <div class="inner-bg">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Sys Ugel {{user.username}}</strong> Login</h1>
-                            <div class="description">
-                                <p>
-                                    This is a free responsive login form made with Bootstrap. 
-                                    Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                             <div class="form-top">
                                 <div class="form-top-left">
-                                    <h3>Login to our site</h3>
+                                    <h3>Login to our <strong>UGEL Calendar</strong></h3>
                                     <p>Enter your username and password to log on:</p>
                                 </div>
                                 <div class="form-top-right">
@@ -72,15 +61,27 @@
                                         <label class="sr-only" for="form-password">Password</label>
                                         <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
                                     </div>
-                                    <button type="submit" class="btn">Sign in!</button>
+                                    <div class="btn-group btn-group-justified">
+                                    <button type="submit" class="btn">Sign in!</button>  
+                                    </div>
 
                                 </form>
-                            </div>
+                            </div>                                                                  
                         </div>
+                        <div class="description">
+                                <p>
+                                    This is a free responsive login form made with Bootstrap. 
+                                    Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
+                                </p>
+                            </div>
                     </div>
+                    
+                    
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 social-login">
-                            <h3>...or login with:</h3>
+                        <!-- Trigger the modal with a button -->
+                    <button data-toggle="modal" class="btn-xs" data-target="#myModal">Register</button>
+                            <h3><a href="{% url 'perfiles_app:registrar_usuario' %}">Register</a>...or login with:</h3>
                             <div class="social-login-buttons">
                                 <a class="btn btn-link-1 btn-link-1-facebook" href="#">
                                     <i class="fa fa-facebook"></i> Facebook
@@ -96,7 +97,59 @@
                     </div>
                 </div>
             </div>
-            
+         
+
+        
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Registrar Usuarío</h4>
+              </div>
+              <div class="modal-body">
+                 <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Password:</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Nombre:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="pwd" placeholder="Enter password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Apellidos:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="pwd" placeholder="Enter password">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn-info">Submit</button>
+                <button type="button" class="btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
         </div>
 
         <!-- Javascript -->

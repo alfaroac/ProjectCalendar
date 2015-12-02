@@ -6,7 +6,7 @@
 		<strong>
 			Tienes <span class="label label-warning">{{cantidad}}</span> registros
 		</strong>
-		<a href="{% url 'informes_app:nuevo' %}" class="btn btn-primary pull-right" id="btnNuevo">
+		<a href="{% url 'perfiles_app:registrar_usuario' %}" class="btn btn-primary pull-right">
 			<span class="glyphicon glyphicon-plus">Nuevo registro</span>
 		</a>
 	</h4>
@@ -34,16 +34,16 @@
 		{% for user in lista %}		
 			<tr>
 				<td>{{user.usuario}}</td>
-				<td>{{user.nombre}}</td>
-				<td>{{user.apellidos}}</td>
+				<td>{{user.usuario.first_name}}</td>
+				<td>{{user.usuario.last_name}}</td>
 				<td>{{user.dni}}</td>
 				<td>{{user.sexo}}</td>
 				<td>{{user.direccion}}</td>
 				<td>{{user.telefono}}</td>
-				<td>{{user.email}}</td>
+				<td>{{user.usuario.email}}</td>
 				<td>{{user.estado}}</td>
-				<td>{{user.imagen}}</td>
-				<td>{{user.role}}</td>
+				<td><img src="{{user.imagen.url}}" width="50px" height="50px" style="border-radius:50%" alt=""></td>
+				<td>{{user.rol}}</td>
 				<td>
 					<a href="#" class="btn btn-success btn-xs"> <span class="glyphicon glyphicon-eye-open"></span></a>
 					<a href="#" class="btn btn-warning btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>

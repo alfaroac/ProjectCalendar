@@ -1,0 +1,54 @@
+{% extends "calendar/base_calendar.html" %}
+{% block contenido %}
+
+<!-- Este boton vale para ingresar nuevo registro --> 
+<div class="page-header">
+	<h4>
+		<strong>
+			Tienes <span class="label label-warning">{{cantidad}}</span> registros
+		</strong>
+		<a href="{% url 'informes_app:nuevo' %}" class="btn btn-primary pull-right" id="btnNuevo">
+			<span class="glyphicon glyphicon-plus">Nuevo registro</span>
+		</a>
+	</h4>
+</div><!-- page-header -->
+
+
+<div id="milista">
+	<table class="table table-striped table-condenced table-hover">
+		<thead>
+			<tr>
+		      <th>Codigo</th>
+		      <th>Nombres</th>
+		      <th>Direccion</th>
+		      <th>Estado</th>
+		      <th>Opciones</th>
+		    </tr>
+		</thead>
+		<tbody>
+		    {% for institucion in instituciones  %}	    
+			<tr>
+				<td>{{institucion.codeInstitution}}</td>
+				<td>{{institucion.nameInstitution}}</td>
+				<td>{{institucion.address}}</td>
+				<td>{{institucion.state}}</td>
+				<td>
+				<a href="#" class="btn btn-success btn-xs"> <span class="glyphicon glyphicon-eye-open"></span></a>
+				<a href="{% url 'informes_app:edit' institucion.pk %}" onclick="confirm()" class="btn btn-warning btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
+				<a href="{% url 'informes_app:delete' institucion.pk %}" onclick="confirm()" class="btn btn-danger btn-xs"> <span class="glyphicon glyphicon-trash"></span></a>
+				</td>
+			</tr>
+			{% endfor %}		
+		</tbody>
+	</table>
+
+</div>
+
+{% endblock contenido %}
+{% block mijs %}
+	<script>
+	$(document).ready(function(){
+		
+	});
+	</script>
+{% endblock mijs %}
