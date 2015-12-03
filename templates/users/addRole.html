@@ -1,0 +1,22 @@
+{% extends "calendar/base_calendar.html" %}
+{% block title %}
+	Regitrar Rol
+{% endblock title %}
+
+{% block contenido %}
+	<div class="page-header">
+		<h4>
+			<a href="{% url 'perfiles_app:role' %}" class="btn btn-info">
+				<span class="glyphicon glyphicon-chevron-left"></span>Regresar
+			</a>
+			<strong>Agregar roles</strong>
+		</h4>
+	</div>{# page-header #}
+	<div>
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{form.as_p}}
+			<input type="submit" class="btn btn-success" value="Registrar">
+		</form>
+	</div>
+{% endblock contenido %}

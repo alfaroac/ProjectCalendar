@@ -20,6 +20,16 @@ class UserForm(UserCreationForm):
 		model = User
 		fields = ('first_name', 'last_name', 'email', 'username', 'rol', 'dni', 'telefono', 'sexo','direccion','estado','imagen')
 
-# class UserRegisterForm(forms.ModelForm):
-# 	class Meta:
+
+class RoleForm(forms.ModelForm):
+	class Meta:
+		model=Rol
+		exclude=()
+		widgets={
+		'rol':forms.TextInput(attrs={'class':'form-control'}),
+		'description':forms.TextInput(attrs={'class':'form-control'}),
+		}
+		
+		
 			
+	

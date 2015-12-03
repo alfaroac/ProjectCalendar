@@ -1,0 +1,38 @@
+{% extends "calendar/base_calendar.html" %}
+{% block contenido %}
+<div class="page-header">
+	<h4>
+		<strong>
+			Tienes <span class="label label-warning">{{cantidad}}</span> Roles
+		</strong>
+		<a href="{% url 'perfiles_app:addRole' %}" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus">Nuevo Rol</span></a>
+	</h4>
+</div>	{# page-header #}
+
+<div>
+	<table class="table table-striped table-condenced table-hober">
+		<thead>
+			<tr>
+				<th>Rol</th>
+				<th>Descripción</th>
+				<th>Opciones</th>	
+			</tr>
+		</thead>
+		<tbody>
+			{% for rol in roles  %}
+			<tr>
+				<td>{{rol.rol}}</td>	
+				<td>{{rol.descripcion}}</td>
+				<td>
+					<a href="#" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
+					<a href="{% url 'perfiles_app:updRole' rol.pk %}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="{% url 'perfiles_app:delRole' rol.pk %}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock contenido %}
+
+

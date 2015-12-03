@@ -3,15 +3,13 @@ from django.views.generic import TemplateView, FormView
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.template import RequestContext
-from .models import Perfiles
-from .forms import UserForm
+from .models import Perfiles, Rol
+from .forms import UserForm, RoleForm 
 
 @login_required
 def calendar(request):
 	return render(request,'index.html')
 
-#def usuarios(request):
-#	return render(request,'perfil/usuarios.html')
 
 def listaUsuarios(request):
 	lista=Perfiles.objects.all()
@@ -55,8 +53,36 @@ def deleteUsers(request, id):
 	return redirect(reverse('perfiles_app:users'))
 
 
-@login_required
-def calendar(request):
-	return render(request,'index.html')
+def role(request):
+	obj_rol=Rol.objects.all()
+	cantidad=obj_rol.count()
+	return render(request, 'users/role.html', {'roles':obj_rol,'cantidad':cantidad})
 
+def addRole(request):
+	if request.method=='POST':
+		objform=RoleForm(request.POST)
+		if objform.is_valid():
+			objform.save()
+			return redirect(reverse('perfiles_app:role'))
+	else:
+		objform=RoleForm()
+	return render(request, 'users/addRole.html',{'form':objform})
+
+
+def updateRole(request, id):
+	obj_edit=Rol.objects.get(pk=id)
+	if request.method=='POST':
+		objform=RoleForm(request.POST, instance=obj_edit)
+		if objform.is_valid():
+			objform.save()
+			return redirect(reverse('perfiles_app:role'))
+	else:
+		objform=RoleForm(instance=obj_edit)
+	return render(request,'users/updRole.html', {'form':objform},context_instance = RequestContext(request))
+	
+
+def deleteRole(request, id):
+	obj_delete=Rol.objects.get(pk=id)
+	obj_delete.delete()
+	return redirect(reverse('perfiles_app:role'))
 

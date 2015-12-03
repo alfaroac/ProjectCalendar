@@ -1,0 +1,45 @@
+{% extends "calendar/base_calendar.html" %}
+{% block contenido %}
+<!-- Este boton vale para ingresar nuevo registro --> 
+<div class="page-header">
+	<h4>
+		<strong>
+			Tienes <span class="label label-warning">{{cantidad}}</span> registros
+		</strong>
+		<a href="{% url 'informes_app:nuevo' %}" class="btn btn-primary pull-right" id="btnNuevo">
+			<span class="glyphicon glyphicon-plus">Nuevo registro</span>
+		</a>
+	</h4>
+</div><!-- page-header -->
+
+<div>
+	<table class="table table-striped table-condenced table-hover">
+		<thead>
+			<th>Institucion</th>
+			<th>Nombre</th>
+			<th>Archivos</th>
+			<th>Descripcion</th>
+			<th>FechaCarga</th>
+			<th>Opciones</th>
+		</thead>
+		<tbody>
+			{% for informe in informes  %}
+			<tr>
+				<td>{{informe.institution.nameInstitution}}</td>
+				<td>{{informe.nameFile}}</td>
+				<td>{{informe.fileInform}}</td>
+				<td>{{informe.description}}</td>
+				<td>{{informe.dateLoad}}</td>
+				<td>
+					<a href="#" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
+					<a href="#" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+				</td>
+			</tr>	
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock contenido %}
+
+

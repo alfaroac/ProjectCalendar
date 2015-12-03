@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
-from .models import Institution
+from .models import Institution, Informes
 from .forms import InstitucionForm
 
 from django.core.urlresolvers import reverse
@@ -37,10 +37,13 @@ def editInstitution (request, id):
 		formulario=InstitucionForm(instance=obj_edit)
 	return render(request,'informes/updInstitution.html', {'form':formulario},context_instance = RequestContext(request))
 
-
 	
 def deleteInstitution (request, id):
     institution_delete = Institution.objects.get(pk=id)
     institution_delete.delete()
     return redirect(reverse('informes_app:institution'))	
 	
+def informes(request):
+	obj_inf=Informes.objects.all()
+	cantidad=obj_inf.count()
+	return render(request,'informes/informes.html', {"informes":obj_inf, 'cantidad':cantidad})
