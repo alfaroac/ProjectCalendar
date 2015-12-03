@@ -1,5 +1,5 @@
 from django import forms
-from .models import Institution
+from .models import Institution, Informes
 
 class InstitucionForm(forms.ModelForm):
 	class Meta:
@@ -15,3 +15,15 @@ class InstitucionForm(forms.ModelForm):
 		'state':forms.CheckboxInput(attrs={'class':'form-control'}),
 		}
 
+class InformeForm(forms.ModelForm):
+	# filename = forms.CharField(max_length=100)
+	# docfile = forms.FileField(
+ #        label='Selecciona un archivo'
+ #    )
+	class Meta:
+		model=Informes
+		exclude=()
+		# widgets={
+		
+		# }	
+		

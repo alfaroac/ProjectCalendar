@@ -1,0 +1,22 @@
+{% extends "calendar/base_calendar.html" %}
+{% block title %}
+	Subir archivo
+{% endblock title %}
+
+{% block contenido %}
+	<div class="page-header">
+		<h4>
+			<a href="{% url 'informes_app:informe' %}" class="btn btn-warning">
+				<span class="glyphicon glyphicon-chevron-left"></span>Regresar
+			</a>
+			<strong>Agregar Informes</strong>
+		</h4>
+	 </div>{# page-header #}
+	 <div>
+	 	<form method="POST" enctype="multipart/form-data">
+	 		{% csrf_token %}
+	 		{{form.as_p}}
+	 		<input type="submit" class="btn btn-success" value="Registrar">
+	 	</form>
+	 </div>
+{% endblock contenido %}

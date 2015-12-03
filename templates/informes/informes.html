@@ -6,7 +6,7 @@
 		<strong>
 			Tienes <span class="label label-warning">{{cantidad}}</span> registros
 		</strong>
-		<a href="{% url 'informes_app:nuevo' %}" class="btn btn-primary pull-right" id="btnNuevo">
+		<a href="{% url 'informes_app:addInforme' %}" class="btn btn-primary pull-right" id="btnNuevo">
 			<span class="glyphicon glyphicon-plus">Nuevo registro</span>
 		</a>
 	</h4>
@@ -32,8 +32,8 @@
 				<td>{{informe.dateLoad}}</td>
 				<td>
 					<a href="#" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
-					<a href="#" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
-					<a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+					<a href="{% url 'informes_app:updInforme' informe.pk %}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="{% url 'informes_app:delInforme' informe.pk %}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
 				</td>
 			</tr>	
 			{% endfor %}

@@ -7,56 +7,19 @@
 	<div class="">
 		<div class="page-header">
 			<h4>
-				<a href="{% url 'informes_app:institution' %}" class="btn btn-success">
+				<a href="{% url 'informes_app:institution' %}" class="btn btn-warning">
 					<span class="glyphicon glyphicon-chevron-left"></span>Regresar
 				</a>
-				<strong>Crear Registro</strong>
+				<strong>Agregar institución</strong>
 			</h4>
 		</div>{# page-header #}
 
-		<div class="row">
-			<div class="col-md-12">
-				<form role="form" method="POST" enctype="multipart/form-data">
-					    {% csrf_token %}
-					<p class="lead"><span class="glyphicon glyphicon-info-sign"></span>
-						Registre todas las instituciones que desee
-					</p>
-					{% if forms.error %}
-					<div class="alert alert-danger" role="alert">
-						{{form.error}}
-					</div>						
-					{% endif %}
-					<div class="form-group">
-						<label>Codigo:</label>
-						{{form.codeInstitution}} 
-					</div>					
-					<div class="form-group">
-					    <label>Nombre</label>
-						{{form.nameInstitution}}
-					</div>	 
-					<div class="form-group">
-					    <label>Dirección</label>
-						{{form.address}}
-					</div>						
-					<div class="form-group">
-					    <label>{{form.latitude.label_tag}}</label>
-					    {{form.latitude}}
-					</div>
-					<div class="form-group">
-					    <label>{{form.longitude.label_tag}}</label>
-						{{form.longitude}}
-					</div>						  
-					<div class="form-group">
-					    <label >Estado:</label>
-						{{form.state}}
-					</div>				
-
-					<div class="form-group">
-					    <button type="submit" class="btn btn-primary">Guardar</button>
-				  		{# <button type="submit" class="btn btn-warning">Cancelar</button> #}
-					</div>
-				</form>
-			</div>
-		</div>
+		<div>
+		 	<form method="POST" enctype="multipart/form-data">
+		 		{% csrf_token %}
+		 		{{form.as_p}}
+		 		<input type="submit" class="btn btn-success" value="Registrar">
+		 	</form>
+		 </div>
 	</div>
 {% endblock contenido %}

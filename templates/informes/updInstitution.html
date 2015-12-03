@@ -10,10 +10,10 @@
 				<a href="{% url 'informes_app:institution' %}" class="btn btn-success">
 					<span class="glyphicon glyphicon-chevron-left"></span>Regresar
 				</a>
-				<strong> Actualiza Registro</strong>
+				<strong> Actualiza institución</strong>
 			</h4>
 		</div>{# page-header #}
-	<form action="" method="post">{% csrf_token %}
+	<form method="post">{% csrf_token %}
 	    {{form.as_p}}
 	    <button type="submit/button">Guardar</button>
 	</form>
