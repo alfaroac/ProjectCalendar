@@ -6,7 +6,6 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^calendario/', include('apps.calendario.urls', namespace='calendar_app')),
     url(r'^informes/', include('apps.informes.urls', namespace='informes_app')),
     url(r'^perfiles/', include('apps.perfiles.urls', namespace='perfiles_app')),
     url(r'^calendar/', include('django_bootstrap_calendar.urls', namespace='calendario_app')),

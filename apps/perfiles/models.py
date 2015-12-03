@@ -29,18 +29,4 @@ class Perfiles(models.Model):
 		#return ‘%s %s’ % (self.usuario.username, self.usuario.first_name)
 
 
-class Direcion(models.Model):
-	direccion = models.CharField(max_length=60)
-	descripcion = models.TextField()
-
-	def __unicode__(self):
-		return self.direccion
-
-
-class Accesos(models.Model):
-	direccion = models.ForeignKey(Direcion)
-	rol = models.ForeignKey(Rol)
-
-	def __unicode__(self):
-		return "%s %s" % (self.direccion.direccion, self.rol.rol)
 

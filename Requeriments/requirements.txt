@@ -1,0 +1,7 @@
+Registrar eventos(ok)
+Compartir eventos(falta)
+*Subir Evidencias(falta)
+*Vista detallada de eventos
+
+Modulo de instituciones
+*Subida de archivos(falta)

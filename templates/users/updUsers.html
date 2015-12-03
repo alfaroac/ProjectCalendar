@@ -1,0 +1,20 @@
+{% extends "calendar/base_calendar.html" %}
+{% block title %}
+	nuevo registro
+{% endblock title %}
+
+{% block contenido %}
+<div class="">
+		<div class="page-header">
+			<h4>
+				<a href="{% url 'perfiles_app:users' %}" class="btn btn-success">
+					<span class="glyphicon glyphicon-chevron-left"></span>Regresar
+				</a>
+				<strong> Actualiza Registro</strong>
+			</h4>
+		</div>{# page-header #}
+	<form action="" method="post">{% csrf_token %}
+	    {{form.as_p}}
+	    <button type="submit/button">Guardar</button>
+	</form>
+{% endblock contenido %}

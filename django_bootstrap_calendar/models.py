@@ -3,6 +3,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from utils import datetime_to_timestamp
+from django.contrib.auth.models import User
 
 
 class CalendarEvent(models.Model):
@@ -27,6 +28,7 @@ class CalendarEvent(models.Model):
                                blank=True)
     place = models.CharField(max_length=100)
     description = models.TextField()
+    users=models.ManyToManyField(User)
 
     @property
     def start_timestamp(self):
@@ -44,3 +46,14 @@ class CalendarEvent(models.Model):
 
     def __unicode__(self):
         return self.title
+
+class Evidences(models.Model):
+    calendar=models.ForeignKey(CalendarEvent)
+    title=models.CharField(max_length=50)
+    description=models.TextField(max_length=300)
+    fileEvidence=models.FileField(upload_to='evidences')    
+    dateLoad = models.DateTimeField(auto_now_add=True)
+    user = models.OneToOneField(User)
+    
+    
+        
