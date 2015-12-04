@@ -1,5 +1,5 @@
 from django import forms
-from .models import CalendarEvent
+from .models import CalendarEvent, Evidences
 from django.utils.translation import ugettext_lazy as _
 from django.forms.extras.widgets import SelectDateWidget
 from django.contrib.admin import widgets  
@@ -39,3 +39,8 @@ class EventForm(forms.ModelForm):
 		super(EventForm, self).__init__(*args, **kwargs)
 		self.fields['start'].widget = widgets.AdminSplitDateTime()
 		self.fields['end'].widget = widgets.AdminSplitDateTime()
+
+class EvidenceForm(forms.ModelForm):
+	class Meta:
+		model=Evidences
+		exclude=()

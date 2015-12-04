@@ -1,0 +1,47 @@
+{% extends "calendar/base_calendar.html" %}
+{% block title %}
+	Evidencias
+{% endblock title %}
+{% block contenido %}
+	<div class="page-header">
+		<h4>
+			<strong>
+				Tienes <span class="label label-warning">{{cantidad}}</span> registros
+			</strong>
+			<a href="{% url 'calendario_app:addEvidence' %}" class="btn btn-primary pull-right">
+				<span class="glyphicon glyphicon-plus">Nuevo registro</span>
+			</a>	
+		</h4>
+	</div>
+	<div>
+		<table class="table table-striped table-condenced table-hover">
+			<thead>
+				<tr>
+					<th>Calendar</th>
+					<th>Titulo</th>
+					<th>Descripción</th>
+					<th>Evidencia</th>
+					<th>Fecha carga</th>
+					<th>Usuario</th>
+					<th>Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for evidence in evidences %}
+				<tr>
+					<td>{{evidence.calendar}}</td>
+					<td>{{evidence.title}}</td>
+					<td>{{evidence.description}}</td>
+					<td>{{evidence.fileEvidence}}</td>
+					<td>{{evidence.dateLoad}}</td>
+					<td>{{evidence.user}}</td>
+					<td>
+						<a href="{% url 'calendario_app:updEvidence' evidence.pk %}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="{% url 'calendario_app:delEvidence' evidence.pk %}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>			
+		</table>
+	</div>
+{% endblock contenido %}

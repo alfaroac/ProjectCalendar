@@ -1,0 +1,21 @@
+{% extends "calendar/base_calendar.html" %}
+{% block title %}
+	Add Evidence
+{% endblock title %}
+{% block contenido %}
+	<div class="page-header">
+		<h4>
+			<a href="{% url 'calendario_app:evidence' %}" class="btn btn-primary">
+				<span class="glyphicon glyphicon-chevron-left"></span>Regresar
+			</a>
+			<strong>Agregar Evidecias</strong>
+		</h4>
+	</div>
+	<div>
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{form.as_p}}
+			<input type="submit" class="btn btn-success" value="Enviar">
+		</form>
+	</div>
+{% endblock contenido %}

@@ -54,6 +54,5 @@ class Evidences(models.Model):
     fileEvidence=models.FileField(upload_to='evidences')    
     dateLoad = models.DateTimeField(auto_now_add=True)
     user = models.OneToOneField(User)
-    
-    
+       
         

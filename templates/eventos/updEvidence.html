@@ -1,0 +1,18 @@
+{% extends "calendar/base_calendar.html" %}
+{% block title %}
+	Actualizar evidencia
+{% endblock title %}
+{% block contenido %}
+	<div class="page-header">
+		<h4>
+			<a href="{% url 'calendario_app:evidence' %}" class="btn btn-primary">
+				<span class="glyphicon glyphicon-chevron-left"></span>Regresar
+			</a>
+			<strong>Actualizar Evidencia</strong>
+		</h4>
+	</div>
+	<form method="POST">{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit/button">Guardar</button>
+	</form>
+{% endblock contenido %}
