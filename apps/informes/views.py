@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
-from .models import Institution, Informes
-from .forms import InstitucionForm, InformeForm
+from .models import Institution, Informes, Director
+from .forms import InstitucionForm, InformeForm, DirectorForm
 
 from django.core.urlresolvers import reverse
 
@@ -77,3 +77,34 @@ def deleteInforme (request, id):
     return redirect(reverse('informes_app:informe'))
 
 
+# director
+def director(request):
+	obj_dir=Director.objects.all()
+	cantidad=obj_dir.count()
+	return render(request,'informes/director.html', {"manager":obj_dir, 'cantidad':cantidad})
+
+def addDirector(request):
+	if request.method=='POST':
+		modelform=DirectorForm(request.POST)
+		if modelform.is_valid():
+			modelform.save()
+			return redirect(reverse('informes_app:director'))
+	else:
+		modelform=DirectorForm()
+	return render(request,'informes/addDirector.html',{'form':modelform})
+
+def updDirector (request, id):
+	obj_update=Director.objects.get(pk=id)
+	if request.method=='POST':
+		modelform=DirectorForm(request.POST, instance=obj_update)
+		if modelform.is_valid():
+			modelform.save()
+			return redirect(reverse('informes_app:director'))
+	else:
+		modelform=DirectorForm(instance=obj_update)
+	return render(request,'informes/updDirector.html', {'form':modelform},context_instance = RequestContext(request))
+
+def delDirector (request, id):
+    obj_delete = Director.objects.get(pk=id)
+    obj_delete.delete()
+    return redirect(reverse('informes_app:director'))

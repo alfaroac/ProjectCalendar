@@ -27,6 +27,3 @@ class Perfiles(models.Model):
 	def __unicode__(self):
 		return self.usuario.username
 		#return ‘%s %s’ % (self.usuario.username, self.usuario.first_name)
-
-
-

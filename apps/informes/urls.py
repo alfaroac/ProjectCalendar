@@ -11,4 +11,8 @@ urlpatterns = [
     url(r'^informe/editar/(?P<id>\d+)$','apps.informes.views.updateInforme', name='updInforme'),
     url(r'^informe/eliminar/(?P<id>\d+)$','apps.informes.views.deleteInforme', name='delInforme'),
 
+    url(r'^director/$','apps.informes.views.director',name='director'),
+    url(r'^director/add/$','apps.informes.views.addDirector',name='addDirector'),
+    url(r'^director/editar/(?P<id>\d+)$','apps.informes.views.updDirector',name='updDirector'),
+    url(r'^director/eliminar/(?P<id>\d+)$','apps.informes.views.delDirector',name='delDirector'),
 ]

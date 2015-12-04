@@ -6,8 +6,8 @@ class Institution(models.Model):
 	codeInstitution=models.CharField(max_length=20, unique=True)
 	nameInstitution = models.CharField(max_length=100)
 	address = models.CharField(max_length=100)
-	latitude = models.CharField(max_length=20)
-	longitude = models.CharField(max_length=20)
+	latitude = models.CharField(max_length=20, null=True)
+	longitude = models.CharField(max_length=20, null=True)
 	state=models.BooleanField()
 
 class Informes(models.Model):

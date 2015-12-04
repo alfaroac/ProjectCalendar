@@ -1,5 +1,5 @@
 from django import forms
-from .models import Institution, Informes
+from .models import Institution, Informes, Director
 
 class InstitucionForm(forms.ModelForm):
 	class Meta:
@@ -27,3 +27,7 @@ class InformeForm(forms.ModelForm):
 		
 		# }	
 		
+class DirectorForm(forms.ModelForm):
+	class Meta:
+		model=Director
+		exclude=()
