@@ -38,11 +38,13 @@ def editInstitution (request, id):
 	return render(request,'informes/updInstitution.html', {'form':formulario},context_instance = RequestContext(request))
 
 	
-def deleteInstitution (request, id):
-    institution_delete = Institution.objects.get(pk=id)
-    institution_delete.delete()
-    return redirect(reverse('informes_app:institution'))	
-	
+def deleteInstitution(request, id, template_name='informes/delInstitution.html'):
+    obj_delete = Institution.objects.get(pk=id)    
+    if request.method=='POST':
+        obj_delete.delete()
+        return redirect(reverse('informes_app:institution'))
+    return render(request, template_name, {'object':obj_delete})
+
 # informes
 def informes(request):
 	obj_inf=Informes.objects.all()
@@ -71,10 +73,12 @@ def updateInforme (request, id):
 		modelform=InformeForm(instance=obj_update)
 	return render(request,'informes/updInforme.html', {'form':modelform},context_instance = RequestContext(request))
 
-def deleteInforme (request, id):
-    obj_delete = Informes.objects.get(pk=id)
-    obj_delete.delete()
-    return redirect(reverse('informes_app:informe'))
+def deleteInforme(request, id, template_name='informes/delInforme.html'):
+    obj_delete = Informes.objects.get(pk=id)    
+    if request.method=='POST':
+        obj_delete.delete()
+        return redirect(reverse('informes_app:informe'))
+    return render(request, template_name, {'object':obj_delete})
 
 
 # director
@@ -104,7 +108,10 @@ def updDirector (request, id):
 		modelform=DirectorForm(instance=obj_update)
 	return render(request,'informes/updDirector.html', {'form':modelform},context_instance = RequestContext(request))
 
-def delDirector (request, id):
-    obj_delete = Director.objects.get(pk=id)
-    obj_delete.delete()
-    return redirect(reverse('informes_app:director'))
+
+def delDirector(request, id, template_name='informes/delDirector.html'):
+    obj_delete = Director.objects.get(pk=id)    
+    if request.method=='POST':
+        obj_delete.delete()
+        return redirect(reverse('informes_app:director'))
+    return render(request, template_name, {'object':obj_delete})

@@ -5,7 +5,7 @@
 <div class="page-header">
 	<h4>
 		<strong>
-			Tienes <span class="label label-warning">{{cantidad}}</span> registros
+			Tienes <span class="label label-warning">{{cantidad}}</span> institución(es)
 		</strong>
 		<a href="{% url 'informes_app:nuevo' %}" class="btn btn-primary pull-right" id="btnNuevo">
 			<span class="glyphicon glyphicon-plus">Nuevo registro</span>
@@ -34,8 +34,8 @@
 				<td>{{institucion.state}}</td>
 				<td>
 				<a href="#" class="btn btn-success btn-xs"> <span class="glyphicon glyphicon-eye-open"></span></a>
-				<a href="{% url 'informes_app:edit' institucion.pk %}" onclick="confirm()" class="btn btn-warning btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
-				<a href="{% url 'informes_app:delete' institucion.pk %}" onclick="confirm()" class="btn btn-danger btn-xs"> <span class="glyphicon glyphicon-trash"></span></a>
+				<a href="{% url 'informes_app:edit' institucion.pk %}" class="btn btn-warning btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
+				<a href="{% url 'informes_app:delete' institucion.pk %}" class="btn btn-danger btn-xs"> <span class="glyphicon glyphicon-trash"></span></a>
 				</td>
 			</tr>
 			{% endfor %}		

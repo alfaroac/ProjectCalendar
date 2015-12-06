@@ -81,7 +81,9 @@ def updEvidence (request, id):
         modelform=EvidenceForm(instance=obj_update)
     return render(request,'eventos/updEvidence.html', {'form':modelform},context_instance = RequestContext(request))
 
-def delEvidence (request, id):
-    obj_delete = Evidences.objects.get(pk=id)
-    obj_delete.delete()
-    return redirect(reverse('calendario_app:evidence'))
+def delEvidence(request, id, template_name='eventos/delEvidence.html'):
+    obj_delete = Evidences.objects.get(pk=id)    
+    if request.method=='POST':
+        obj_delete.delete()
+        return redirect(reverse('calendario_app:evidence'))
+    return render(request, template_name, {'object':obj_delete})

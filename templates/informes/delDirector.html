@@ -1,0 +1,23 @@
+{% extends "calendar/base_calendar.html" %}
+{% block title %}
+	Confirma eliminar
+{% endblock title %}
+{% block contenido %}
+<div class="page-header">
+		<h4>
+			<a href="{% url 'informes_app:director' %}" class="btn btn-warning">
+				<span class="glyphicon glyphicon-chevron-left"></span>Regresar
+			</a>
+			<strong>Confirma eliminar</strong>
+		</h4>
+	</div>
+	<form method="POST">{% csrf_token %}
+
+	<div class="alert alert-danger">
+	<span class="glyphicon glyphicon-exclamation-sign"></span>
+	  <strong>Cuidado!</strong> Estas seguro de querer eliminar al director: "<strong>{{ object }}</strong>" ?
+	</div>		
+		<button type="submit/button" class="btn btn-success">Estoy seguro<span class="glyphicon glyphicon-chevron-right"></span></button>
+	</form>	
+
+{% endblock contenido %}

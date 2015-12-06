@@ -46,13 +46,15 @@ def editUsers(request, id):
 		formulario=UserForm(instance=obj_edit)
 	return render(request,'users/updUsers.html', {'form':formulario},context_instance = RequestContext(request))
 	
+def deleteUsers(request, id, template_name='users/delUser.html'):
+    obj_delete = Perfiles.objects.get(pk=id)    
+    if request.method=='POST':
+        obj_delete.delete()
+        return redirect(reverse('perfiles_app:users'))
+    return render(request, template_name, {'object':obj_delete})
 
-def deleteUsers(request, id):
-	obj_delete=Perfiles.objects.get(pk=id)
-	obj_delete.delete()
-	return redirect(reverse('perfiles_app:users'))
 
-
+# roles
 def role(request):
 	obj_rol=Rol.objects.all()
 	cantidad=obj_rol.count()
@@ -80,9 +82,9 @@ def updateRole(request, id):
 		objform=RoleForm(instance=obj_edit)
 	return render(request,'users/updRole.html', {'form':objform},context_instance = RequestContext(request))
 	
-
-def deleteRole(request, id):
-	obj_delete=Rol.objects.get(pk=id)
-	obj_delete.delete()
-	return redirect(reverse('perfiles_app:role'))
-
+def deleteRole(request, id, template_name='users/delRole.html'):
+    server = Rol.objects.get(pk=id)    
+    if request.method=='POST':
+        server.delete()
+        return redirect(reverse('perfiles_app:role'))
+    return render(request, template_name, {'object':server})
