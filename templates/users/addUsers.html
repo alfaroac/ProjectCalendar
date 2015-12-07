@@ -6,7 +6,7 @@
 {% block contenido %}
 	<div class="page-header">
 		<h4>
-			<a href="{% url 'perfiles_app:role' %}" class="btn btn-info">
+			<a href="{% url 'perfiles_app:users' %}" class="btn btn-info">
 				<span class="glyphicon glyphicon-chevron-left"></span>Regresar
 			</a>
 			<strong>Registrar usuarios</strong>
@@ -16,7 +16,7 @@
 		<form method="POST" enctype="multipart/form-data">
 			{% csrf_token %}
 			{{form.as_p}}
-			<input type="submit" class="btn btn-success" value="Registrar">
+			<button type="submit/button" class="btn btn-success pull-right">Registrar<span class="glyphicon glyphicon-chevron-right"></span></button>
 		</form>
 	</div>
 {% endblock contenido %}
