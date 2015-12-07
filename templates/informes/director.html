@@ -27,7 +27,7 @@
 			{% for director in manager %}
 			<tr>
 				<td>{{director.yearWork}}</td>
-				<td>{{director.user}}</td>
+				<td>{{director.user.first_name}} {{director.user.last_name}}</td>
 				<td>{{director.state}}</td>
 				<td>{{director.institution.nameInstitution}}</td>
 				<td>

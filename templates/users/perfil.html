@@ -4,9 +4,9 @@
 <div class="page-header">
 	<h4>
 		<strong>
-			Tienes <span class="label label-warning">{{cantidad}}</span> registros
+			Tienes <span class="label label-warning">{{cantidad}}</span> perfil(es) registrado(s)
 		</strong>
-		<a href="{% url 'perfiles_app:addUsers' %}" class="btn btn-primary pull-right">
+		<a href="{% url 'perfiles_app:addPerfil' %}" class="btn btn-primary pull-right">
 			<span class="glyphicon glyphicon-plus">Nuevo registro</span>
 		</a>
 	</h4>
@@ -17,8 +17,6 @@
 		<thead>
 			<tr>
 				<th>Usuario</th>
-			    <th>Nombres</th>
-			    <th>Apellidos</th>
 			    <th>DNI</th>
 			    <th>Sexo</th>
 			    <th>Direccion</th>
@@ -34,8 +32,6 @@
 		{% for user in lista %}		
 			<tr>
 				<td>{{user.usuario}}</td>
-				<td>{{user.usuario.first_name}}</td>
-				<td>{{user.usuario.last_name}}</td>
 				<td>{{user.dni}}</td>
 				<td>{{user.sexo}}</td>
 				<td>{{user.direccion}}</td>
@@ -46,8 +42,8 @@
 				<td>{{user.rol}}</td>
 				<td>
 					<a href="#" class="btn btn-success btn-xs"> <span class="glyphicon glyphicon-eye-open"></span></a>
-					<a href="{% url 'perfiles_app:edit' user.pk %}" class="btn btn-warning btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
-					<a href="{% url 'perfiles_app:delete' user.pk %}" class="btn btn-danger btn-xs"> <span class="glyphicon glyphicon-trash"></span></a>
+					<a href="{% url 'perfiles_app:updPerfil' user.pk %}" class="btn btn-warning btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="{% url 'perfiles_app:delPerfil' user.pk %}" class="btn btn-danger btn-xs"> <span class="glyphicon glyphicon-trash"></span></a>
 				</td>
 			</tr>	
 		{% endfor %}
@@ -59,13 +55,4 @@
 
 {% endblock contenido %}
 {% block mijs %}
-	<script>
-	$(document).ready(function(){
-		// $("#formAdd").hide();
-		// $("#btnNuevo").click(function(){
-		// 	$("#formAdd").show();
-		// 	$("#milista").hide();
-		// });
-	});
-	</script>
 {% endblock mijs %}

@@ -5,19 +5,19 @@
 {% block contenido %}
 <div class="page-header">
 		<h4>
-			<a href="{% url 'informes_app:director' %}" class="btn btn-warning">
+			<a href="{% url 'perfiles_app:perfil' %}" class="btn btn-warning">
 				<span class="glyphicon glyphicon-chevron-left"></span>Regresar
 			</a>
-			<strong>Confirma eliminar</strong>
+			<strong>Eliminar Rol</strong>
 		</h4>
 	</div>
 	<form method="POST">{% csrf_token %}
 
 	<div class="alert alert-danger">
 	<span class="glyphicon glyphicon-exclamation-sign"></span>
-	  <strong>Cuidado!</strong> Estas seguro de querer eliminar al director: "<strong>{{ object }}</strong>" ?
+	  <strong>Cuidado!</strong> Estas seguro de querer eliminar el usuario: "<strong>{{ object }}</strong>" ?
 	</div>		
-		<<button type="submit/button" class="btn btn-success pull-right">Estoy seguro<span class="glyphicon glyphicon-chevron-right"></span></button>
+		<button type="submit/button" class="btn btn-success pull-right">Estoy seguro<span class="glyphicon glyphicon-chevron-right"></span></button>
 	</form>	
 
 {% endblock contenido %}

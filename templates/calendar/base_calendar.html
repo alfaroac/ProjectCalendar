@@ -135,11 +135,15 @@
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+
             <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    {% if user.perfiles.rol.rol == "Funcionario" %}
+                
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="{%url 'calendario_app:calendar' %}"><i class="fa fa-table fa"></i> Calendario</a>
-                    </li>
+                        <a href="{%url 'calendario_app:calendar' %}"><i class="fa fa-table fa"></i> Calendario                       
+                        </a>
+                    </li>                    
                     <li>
                         <a href="{%url 'calendario_app:evidence' %}"><i class="fa fa-book fa"></i> Evidencias</a>
                     </li>
@@ -157,6 +161,47 @@
                             </li>
                         </ul>
                     </li>
+                  
+                    
+                </ul>
+                 {% endif %}
+                 {% if user.is_staff %}
+                     <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="{%url 'calendario_app:calendar' %}"><i class="fa fa-table fa"></i> Calendario                       
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{%url 'calendario_app:evidence' %}"><i class="fa fa-book fa"></i> Evidencias</a>
+                    </li>
+                    <li>
+                        <a href="{%url 'perfiles_app:users' %}"><i class="fa fa-user fa"></i> Main Users</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Institución <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="{% url 'informes_app:institution' %}"><i class="fa fa-home fa-fw"></i> Instituciones</a>
+                            </li>                                            
+                            <li>
+                                <a href="{% url 'informes_app:informe' %}"><i class="fa fa-fw fa-file"></i> Archivos</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'informes_app:director' %}"><i class="fa fa-fw fa-user"></i> Director</a>
+                            </li>
+                        </ul>
+                    </li>
+                
+                    <li>
+                        <a href="{% url 'informes_app:institution' %}"><i class="fa fa-home fa-fw"></i> Instituciones</a>
+                    </li>                                            
+                    <li>
+                        <a href="{% url 'informes_app:informe' %}"><i class="fa fa-fw fa-file"></i> Archivos</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'informes_app:director' %}"><i class="fa fa-fw fa-user"></i> Director</a>
+                    </li>
+
                     <li>
                         <a href="javascript:;" data-toggle='collapse' data-target='#demo2'><i class="fa fa-fw fa-arrows-v"></i>Usuarios <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
@@ -164,12 +209,24 @@
                                 <a href="{% url 'perfiles_app:role' %}"><i class="fa fa-pencil fa-fw"></i> Roles</a>
                             </li>
                             <li>
-                                <a href="{% url 'perfiles_app:users' %}"><i class="fa fa-user fa-fw"></i> Usuarios</a>
+                                <a href="{% url 'perfiles_app:perfil' %}"><i class="fa fa-user fa-fw"></i> Perfiles</a>
                             </li>
                         </ul>
                     </li>
                     
                 </ul>
+                 {% endif %}
+                        {% if user.perfiles.rol.rol == "Director" %}
+                          <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="{%url 'informes_app:informe' %}"><i class="fa fa-table fa"></i> Informes
+                       
+                         
+                       
+                        </a>
+                    </li>
+
+                        {% endif %}
             </div>
             <!-- /.navbar-collapse -->
     </nav>

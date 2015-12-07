@@ -1,15 +1,14 @@
 {% extends "calendar/base_calendar.html" %}
 {% block title %}
-	Actualizar Rol
+	Actualizar usuario
 {% endblock title %}
-
 {% block contenido %}
 	<div class="page-header">
 		<h4>
-			<a href="{% url 'perfiles_app:role' %}" class="btn btn-primary">
+			<a href="{% url 'perfiles_app:users' %}" class="btn btn-primary">
 				<span class="glyphicon glyphicon-chevron-left"></span>Regresar
 			</a>
-			<strong>Actualizar Rol</strong>
+			<strong>Actualizar Usuario</strong>
 		</h4>
 	</div>
 	<form method="POST">{% csrf_token %}

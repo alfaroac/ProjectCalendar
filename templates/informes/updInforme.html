@@ -14,7 +14,7 @@
 	<div>
 		<form method="POST">{% csrf_token %}
 			{{form.as_p}}
-			 <button type="submit/button">Guardar</button>
+			 <button type="submit/button" class="btn btn-success pull-right">Guardar cambios<span class="glyphicon glyphicon-chevron-right"></span></button>
 		</form>
 	</div>
 {% endblock contenido %}

@@ -16,18 +16,18 @@ class InstitucionForm(forms.ModelForm):
 		}
 
 class InformeForm(forms.ModelForm):
-	# filename = forms.CharField(max_length=100)
-	# docfile = forms.FileField(
- #        label='Selecciona un archivo'
- #    )
 	class Meta:
 		model=Informes
 		exclude=()
-		# widgets={
-		
-		# }	
+		widgets={
+		'nameFile':forms.TextInput(attrs={'class':'form-control'}),
+		'description':forms.TextInput(attrs={'class':'form-control'}),
+		}	
 		
 class DirectorForm(forms.ModelForm):
 	class Meta:
 		model=Director
 		exclude=()
+		widgets={
+		'yearWork':forms.TextInput(attrs={'class':'form-control'}),
+		}

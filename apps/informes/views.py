@@ -66,6 +66,7 @@ def addInforme(request):
 	else:
 		modelform=InformeForm()
 	return render(request,'informes/addInforme.html',{'form':modelform})
+
 @login_required
 def updateInforme (request, id):
 	obj_update=Informes.objects.get(pk=id)
@@ -104,6 +105,7 @@ def addDirector(request):
 	else:
 		modelform=DirectorForm()
 	return render(request,'informes/addDirector.html',{'form':modelform})
+
 @login_required
 def updDirector (request, id):
 	obj_update=Director.objects.get(pk=id)
