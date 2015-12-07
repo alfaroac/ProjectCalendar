@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 def users(request):
 	lista=User.objects.all()
 	numreg=lista.count()
-	return render(request,'users/users_main.html',{'lista':lista,'cantidad':numreg})
+	return render(request,'users/users.html',{'lista':lista,'cantidad':numreg})
 
 @login_required
 def addUsers(request):

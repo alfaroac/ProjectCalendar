@@ -31,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{%url 'calendario_app:calendar' %}">Calendario-UGEL</a>
+                <a class="navbar-brand" href="#">Calendario-UGEL</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -177,9 +177,10 @@
                     <li>
                         <a href="{%url 'perfiles_app:users' %}"><i class="fa fa-user fa"></i> Main Users</a>
                     </li>
+                
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Institución <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                        <a href="javascript:;" data-toggle='collapse' data-target='#demo1'><i class="fa fa-fw fa-arrows-v"></i>Institucion<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo1" class="collapse">
                             <li>
                                 <a href="{% url 'informes_app:institution' %}"><i class="fa fa-home fa-fw"></i> Instituciones</a>
                             </li>                                            
@@ -190,16 +191,6 @@
                                 <a href="{% url 'informes_app:director' %}"><i class="fa fa-fw fa-user"></i> Director</a>
                             </li>
                         </ul>
-                    </li>
-                
-                    <li>
-                        <a href="{% url 'informes_app:institution' %}"><i class="fa fa-home fa-fw"></i> Instituciones</a>
-                    </li>                                            
-                    <li>
-                        <a href="{% url 'informes_app:informe' %}"><i class="fa fa-fw fa-file"></i> Archivos</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'informes_app:director' %}"><i class="fa fa-fw fa-user"></i> Director</a>
                     </li>
 
                     <li>
@@ -213,7 +204,6 @@
                             </li>
                         </ul>
                     </li>
-                    
                 </ul>
                  {% endif %}
                         {% if user.perfiles.rol.rol == "Director" %}
