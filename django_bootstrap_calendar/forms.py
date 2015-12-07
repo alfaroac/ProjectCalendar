@@ -23,7 +23,7 @@ class EventForm(forms.ModelForm):
       #                                 "pickSeconds": False}))
 	class Meta:
 		model=CalendarEvent
-		fields = ['title', 'url', 'css_class','start','end','place','description']
+		fields = ['title', 'url', 'css_class','start','end','place','description','users']
 		exclude=()
 		widgets={
 		'title':forms.TextInput(attrs={'class':'form-control col-md-6'}),
@@ -33,6 +33,7 @@ class EventForm(forms.ModelForm):
 		#'end':forms.TextInput(attrs={'class':'form-control'}),
 		'place':forms.TextInput(attrs={'class':'form-control'}),
 		'description':forms.TextInput(attrs={'class':'form-control'}),
+		'users':forms.CheckboxSelectMultiple(),
 		}
 
 	def __init__(self, *args, **kwargs):
@@ -43,4 +44,17 @@ class EventForm(forms.ModelForm):
 class EvidenceForm(forms.ModelForm):
 	class Meta:
 		model=Evidences
+		# objcalendar=model.calendar.objects.all()
+		# calendar = forms.MultipleChoiceField(required=False,
+  #       widget=forms.CheckboxSelectMultiple, choices=objcalendar)
 		exclude=()
+		widgets={
+
+		#'calendar':forms.CheckboxSelectMultiple(),
+		'title':forms.TextInput(attrs={'class':'form-control'}),
+		'description':forms.TextInput(attrs={'class':'form-control'}),
+		'fileEvidence':forms.FileInput(attrs={'class':'btn btn-warning'}), #glyphicon glyphicon-upload
+		# 'dateLoad':forms.DateField(attrs={'class':'form-control'}),
+		# #'end':forms.TextInput(attrs={'class':'form-control'}),
+		# 'user':forms.TextInput(attrs={'class':'form-control'}),
+		}

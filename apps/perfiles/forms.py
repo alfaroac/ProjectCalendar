@@ -27,7 +27,7 @@ class RoleForm(forms.ModelForm):
 		exclude=()
 		widgets={
 		'rol':forms.TextInput(attrs={'class':'form-control'}),
-		'description':forms.TextInput(attrs={'class':'form-control'}),
+		'description':forms.Textarea(attrs={'rows': 5, 'cols': 100}),
 		}
 		
 		

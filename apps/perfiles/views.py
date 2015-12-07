@@ -10,11 +10,12 @@ from .forms import UserForm, RoleForm
 def calendar(request):
 	return render(request,'index.html')
 
-
+@login_required
 def listaUsuarios(request):
 	lista=Perfiles.objects.all()
 	nro_registros=lista.count()
 	return render(request,'users/users.html', {"lista":lista, 'cantidad':nro_registros})
+
 
 class userRegister(FormView):
 	template_name='users/addUsers.html'
@@ -35,6 +36,7 @@ class userRegister(FormView):
 		perfil.save()
 		return super(userRegister,self).form_valid(form)
 
+@login_required
 def editUsers(request, id):
 	obj_edit=Perfiles.objects.get(pk=id)
 	if request.method=='POST':
@@ -45,7 +47,7 @@ def editUsers(request, id):
 	else:
 		formulario=UserForm(instance=obj_edit)
 	return render(request,'users/updUsers.html', {'form':formulario},context_instance = RequestContext(request))
-	
+@login_required	
 def deleteUsers(request, id, template_name='users/delUser.html'):
     obj_delete = Perfiles.objects.get(pk=id)    
     if request.method=='POST':
@@ -55,11 +57,13 @@ def deleteUsers(request, id, template_name='users/delUser.html'):
 
 
 # roles
+@login_required
 def role(request):
 	obj_rol=Rol.objects.all()
 	cantidad=obj_rol.count()
 	return render(request, 'users/role.html', {'roles':obj_rol,'cantidad':cantidad})
 
+@login_required
 def addRole(request):
 	if request.method=='POST':
 		objform=RoleForm(request.POST)
@@ -70,7 +74,7 @@ def addRole(request):
 		objform=RoleForm()
 	return render(request, 'users/addRole.html',{'form':objform})
 
-
+@login_required
 def updateRole(request, id):
 	obj_edit=Rol.objects.get(pk=id)
 	if request.method=='POST':
@@ -81,7 +85,8 @@ def updateRole(request, id):
 	else:
 		objform=RoleForm(instance=obj_edit)
 	return render(request,'users/updRole.html', {'form':objform},context_instance = RequestContext(request))
-	
+
+@login_required	
 def deleteRole(request, id, template_name='users/delRole.html'):
     server = Rol.objects.get(pk=id)    
     if request.method=='POST':

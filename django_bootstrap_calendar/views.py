@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.template import RequestContext
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from .models import CalendarEvent, Evidences
 from .forms import EventForm, EvidenceForm
@@ -54,12 +55,28 @@ class CrearEvento(FormView):
     def form_valid(self, form):
         event = form.save()
         return super(CrearEvento, self).form_valid(form)
+
+@login_required
+def detalle_evento(request, evento_id):
+
+    evento = get_object_or_404(CalendarEvent, pk=evento_id)
+    return render(request, 'eventos/detalle_evento.html',{"evento":evento})
+
+@login_required
+def delEvento(request, id):
+    obj_delete = CalendarEvent.objects.get(pk=id)    
+    obj_delete.delete()
+    return redirect(reverse('calendario_app:calendar'))
+    
+
 # evidences
+@login_required
 def evidencias(request):
     obj_evid=Evidences.objects.all()
     cant=obj_evid.count()
     return render(request,'eventos/evidencias.html',{'evidences':obj_evid,'cantidad':cant})
 
+@login_required
 def addEvidence(request):
     if request.method=='POST':
         modelform=EvidenceForm(request.POST,request.FILES)
@@ -70,6 +87,7 @@ def addEvidence(request):
         modelform=EvidenceForm()
     return render(request,'eventos/addEvidence.html',{'form':modelform})
 
+@login_required
 def updEvidence (request, id):
     obj_update=Evidences.objects.get(pk=id)
     if request.method=='POST':
@@ -81,6 +99,7 @@ def updEvidence (request, id):
         modelform=EvidenceForm(instance=obj_update)
     return render(request,'eventos/updEvidence.html', {'form':modelform},context_instance = RequestContext(request))
 
+@login_required
 def delEvidence(request, id, template_name='eventos/delEvidence.html'):
     obj_delete = Evidences.objects.get(pk=id)    
     if request.method=='POST':
