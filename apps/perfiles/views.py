@@ -59,25 +59,17 @@ def perfiles(request):
 	nro_registros=lista.count()
 	return render(request,'users/perfil.html', {"lista":lista, 'cantidad':nro_registros})
 
+@login_required
+def addPerfil(request):
+	if request.method=='POST':
+		objform=PerfilForm(request.POST,request.FILES)
+		if objform.is_valid():
+			objform.save()
+			return redirect(reverse('perfiles_app:perfil'))
+	else:
+		objform=PerfilForm()
+	return render(request, 'users/addPerfil.html',{'form':objform})
 
-class addPerfil(FormView):
-	template_name='users/addPerfil.html'
-	form_class=PerfilForm
-	success_url=reverse_lazy('perfiles_app:perfil')
-
-	def form_valid(self, form):
-		user=form.save()
-		perfil=Perfiles()
-		perfil.usuario=user
-		perfil.dni=form.cleaned_data['dni']
-		perfil.rol=form.cleaned_data['rol']
-		perfil.sexo=form.cleaned_data['sexo']
-		perfil.direccion=form.cleaned_data['direccion']
-		perfil.telefono=form.cleaned_data['telefono']
-		perfil.estado=form.cleaned_data['estado']
-		perfil.imagen=form.cleaned_data['imagen']
-		perfil.save()
-		return super(addPerfil,self).form_valid(form)
 
 @login_required
 def updPerfil(request, id):

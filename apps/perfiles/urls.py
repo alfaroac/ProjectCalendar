@@ -11,7 +11,8 @@ urlpatterns = [
     url(r'^users/eliminar/(?P<id>\d+)$', 'apps.perfiles.views.delUser', name='delUser'),
 
     url(r'^usuarios$', 'apps.perfiles.views.perfiles', name='perfil'),
-    url(r'^registrar$', login_required(addPerfil.as_view()), name='addPerfil'),   
+    #url(r'^registrar$', login_required(addPerfil.as_view()), name='addPerfil'),   
+    url(r'^registrar/$','apps.perfiles.views.addPerfil',name='addPerfil'),
     url(r'^usuarios/editar/(?P<id>\d+)$', 'apps.perfiles.views.updPerfil', name='updPerfil'),     
     url(r'^usuarios/eliminar/(?P<id>\d+)$', 'apps.perfiles.views.delPerfil', name='delPerfil'),
     
